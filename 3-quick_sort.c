@@ -1,5 +1,17 @@
 #include "sort.h"
 /**
+ * swap - swaps integers
+ * @a: first integer
+ * @b: second integer
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+/**
  * partition - split elements
  * @arr: array
  * @first: first element
@@ -17,13 +29,13 @@ int partition(int *arr, int first, int last, size_t size)
 	{
 		if (arr[j] <= p)
 		{
-			swap_integers(&arr[i], &arr[j]);
+			swap(&arr[i], &arr[j]);
 			if (i != j)
 				print_array(arr, size);
 			i++;
 		}
 	}
-	swap_integers(&arr[i], &arr[last]);
+	swap(&arr[i], &arr[last]);
 	if (i != j)
 		print_array(arr, size);
 	return (i);
